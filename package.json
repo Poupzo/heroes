@@ -14,7 +14,7 @@
     "tsc:dev": "tsc -w -p ./src/tsconfig.server.json",
     "server:dev": "node src/server.js",
     "app:dev": "ng serve --proxy-config proxy.config.json",
-    "webpack:server": "webpack --config w   ebpack.server.config.js --progress --colors"
+    "webpack:server": "webpack --config webpack.server.config.js --progress --colors"
   },
   "private": true,
   "dependencies": {
