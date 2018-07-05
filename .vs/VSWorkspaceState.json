@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\api",
+    "\\src\\api\\mongoose",
+    "\\src\\app"
+  ],
+  "SelectedNode": "\\src\\app\\hero.service.ts",
+  "PreviewInSolutionExplorer": false
+}

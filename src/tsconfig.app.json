@@ -7,6 +7,9 @@
   },
   "exclude": [
     "src/test.ts",
+    "server.ts",
+    "./api/*",
+    "./config/*",
     "**/*.spec.ts"
   ]
 }
