@@ -4,6 +4,7 @@ import * as Hero from "./mongoose/hero";
 
 export function heroes(app: express.Express) {
 
+  //GET
   app.get('/api/heroes', function (req, res, next) {
     Hero.find(function (err, heroes) {
 
@@ -16,6 +17,7 @@ export function heroes(app: express.Express) {
     });
   });
 
+  //DELETE
   app.delete('/api/heroes/:id', function (req, res, next) {
     const id = req.params.id;
 
@@ -29,6 +31,21 @@ export function heroes(app: express.Express) {
     });
   });
 
+  //UPDATE
+  app.put('/api/heroes/:id', function (req, res, next) {
+    const id = req.params.id;
+
+    Hero.findByIdAndUpdate(id, function (err, heroes) {
+      if (err) {
+        res.statusCode = 404;
+        res.json({ error: err });
+      }
+      else
+        res.json(heroes);
+    });
+  });
+
+  //ADD
   app.post('/api/heroes', function (req, res, next) {
     var tmp = req.body;
 
