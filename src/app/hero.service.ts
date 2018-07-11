@@ -31,7 +31,7 @@ export class HeroService {
   }
 
   /** GET hero by _id. Will 404 if _id not found */
-  getHero(_id: number): Observable<Hero> {
+  getHero(_id: string): Observable<Hero> {
     const url = `${this.heroesUrl}/${_id}`;
     return this.http.get<Hero>(url).pipe(
       tap(_ => this.log(`fetched hero _id=${_id}`)),
