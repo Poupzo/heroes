@@ -4,6 +4,12 @@ import * as Hero from "./mongoose/hero";
 
 export function heroes(app: express.Express) {
 
+  app.use(function (req, res, next) {
+    console.log(req.method, req.url);
+    next();
+  }
+  );
+
   //GET
   app.get('/api/heroes', function (req, res, next) {
     Hero.find(function (err, heroes) {
@@ -24,9 +30,9 @@ export function heroes(app: express.Express) {
     Hero.findByIdAndRemove(id, function (err, heroes) {
       if (err) {
         res.statusCode = 404;
-        res.json({ error: err});
+        res.json({ error: err });
       }
-      else 
+      else
         res.json(heroes);
     });
   });
@@ -56,7 +62,7 @@ export function heroes(app: express.Express) {
       });
     } else {
       const tmphero = new Hero({
-        id:tmp.id,
+        id: tmp.id,
         name: tmp.name
       });
 
